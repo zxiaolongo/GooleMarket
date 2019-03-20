@@ -22,6 +22,4 @@ public class GameFragment extends BaseFragment {
         textView.setText("请求成功了,所以我显示成功的界面,即此TextView");
         return textView;
     }
-
-
 }

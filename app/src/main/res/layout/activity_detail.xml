@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--因为项目详情界面的代码逻辑非常多非常复杂,所以对其代码逻辑进行拆分,布局也进行拆分-->
+    <!--提供4个空白的帧布局,用addView的形式向帧布局中添加每一个子模块的功能-->
+    <FrameLayout
+        android:id="@+id/fl_app_info"
+        android:background="@drawable/selector_home_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_app_safe"
+        android:background="@drawable/selector_home_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_app_pic"
+        android:background="@drawable/selector_home_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_app_des"
+        android:background="@drawable/selector_home_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+</LinearLayout>

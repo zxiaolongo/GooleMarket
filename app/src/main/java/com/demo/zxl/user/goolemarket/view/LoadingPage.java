@@ -57,6 +57,7 @@ public abstract class LoadingPage extends FrameLayout {
         }
         showPage();
     }
+
     //根据目前current_state所处的状态,决定展示界面内容
     private void showPage() {
         //对进度条的显示和隐藏通过状态码进行判断

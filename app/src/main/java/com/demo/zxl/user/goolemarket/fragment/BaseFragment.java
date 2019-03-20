@@ -6,8 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.demo.zxl.user.goolemarket.utils.UIUitls;
 import com.demo.zxl.user.goolemarket.view.LoadingPage;
+
+import java.util.List;
 
 /**
  * Created by HASEE.
@@ -50,6 +53,17 @@ public abstract class BaseFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         getData();
         super.onActivityCreated(savedInstanceState);
+    }
+
+    public LoadingPage.ResultState checkData(List list) {
+        if (list!=null){
+            if (list.size()>0){
+                //本次请求成功
+                return LoadingPage.ResultState.RESULT_STATE_SUCCESSED;
+            }
+            return LoadingPage.ResultState.RESULT_STATE_EMPTY;
+        }
+        return LoadingPage.ResultState.RESULT_STATE_ERROR;
     }
 
     //(首页,应用,游戏) 请求过程有差异,所以此处无法统一处理,交由子类实现
