@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 
 import com.demo.zxl.user.goolemarket.bean.HomeInfo;
+import com.demo.zxl.user.goolemarket.moudule.AppDesModule;
 import com.demo.zxl.user.goolemarket.moudule.AppInfoModule;
+import com.demo.zxl.user.goolemarket.moudule.AppPicModule;
 import com.demo.zxl.user.goolemarket.moudule.AppSafeModule;
 import com.demo.zxl.user.goolemarket.protocol.DetailProtocol;
 import com.demo.zxl.user.goolemarket.utils.UIUitls;
@@ -30,6 +33,9 @@ public class DetailActivity extends Activity {
 
     @BindView(R.id.fl_app_des)
     FrameLayout flAppDes;
+
+    @BindView(R.id.scrollview)
+    ScrollView scrollview;
 
     private String packagename;
     private LoadingPage loadingPage;
@@ -70,7 +76,14 @@ public class DetailActivity extends Activity {
         AppSafeModule appSafeModule = new AppSafeModule(UIUitls.getContext());
         appSafeModule.bindData(detailAppInfo);
         flAppSafe.addView(appSafeModule.view);
+        //图片相关
+        AppPicModule appPicModule = new AppPicModule(UIUitls.getContext());
+        appPicModule.bindData(detailAppInfo);
+        flAppPic.addView(appPicModule.view);
 
+        AppDesModule appDesModule = new AppDesModule(UIUitls.getContext(),scrollview);
+        appDesModule.bindData(detailAppInfo);
+        flAppDes.addView(appDesModule.view);
         return view;
     }
 

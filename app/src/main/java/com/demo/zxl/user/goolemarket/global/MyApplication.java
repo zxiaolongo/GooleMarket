@@ -2,7 +2,10 @@ package com.demo.zxl.user.goolemarket.global;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
 import android.os.Handler;
+
+import java.io.File;
 
 /**
  * Created by HASEE.
@@ -18,6 +21,7 @@ public class MyApplication extends Application {
     //主线程id
     private static long mainThreadId;
 
+    private static String path;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -28,6 +32,13 @@ public class MyApplication extends Application {
         handler = new Handler();
         mainThread = Thread.currentThread();
         mainThreadId = Thread.currentThread().getId();
+
+        path = Environment.getExternalStorageDirectory().getAbsolutePath()
+                +"/heima105/market/download";
+        File file = new File(path);
+        if (!file.exists()){
+            file.mkdirs();
+        }
     }
     public static Context getContext(){
         return ctx;
@@ -43,5 +54,9 @@ public class MyApplication extends Application {
 
     public static long getMainThreadId() {
         return mainThreadId;
+    }
+
+    public static String getPath(){
+        return path;
     }
 }

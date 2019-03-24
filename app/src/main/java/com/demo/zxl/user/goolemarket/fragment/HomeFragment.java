@@ -81,7 +81,6 @@ public class HomeFragment extends BaseFragment {
 
         HomeAdapter homeAdapter = new HomeAdapter(
                 UIUitls.getContext(),R.layout.item_home,appInfoList);
-
         headerAndFooterWrapper = new HeaderAndFooterWrapper(homeAdapter);
         initHeader();
 

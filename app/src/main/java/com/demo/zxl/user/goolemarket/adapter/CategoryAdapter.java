@@ -6,6 +6,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.List;
 
+
 /**
  * Created by HASEE.
  */
