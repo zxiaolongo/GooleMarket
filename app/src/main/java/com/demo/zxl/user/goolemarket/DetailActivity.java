@@ -1,13 +1,16 @@
 package com.demo.zxl.user.goolemarket;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import com.demo.zxl.user.goolemarket.bean.HomeInfo;
 import com.demo.zxl.user.goolemarket.moudule.AppDesModule;
+import com.demo.zxl.user.goolemarket.moudule.AppDownloadModule;
 import com.demo.zxl.user.goolemarket.moudule.AppInfoModule;
 import com.demo.zxl.user.goolemarket.moudule.AppPicModule;
 import com.demo.zxl.user.goolemarket.moudule.AppSafeModule;
@@ -17,11 +20,10 @@ import com.demo.zxl.user.goolemarket.view.LoadingPage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 /**
  * Created by HASEE.
  */
-public class DetailActivity extends Activity {
+public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.fl_app_info)
     FrameLayout flAppInfo;
 
@@ -34,8 +36,17 @@ public class DetailActivity extends Activity {
     @BindView(R.id.fl_app_des)
     FrameLayout flAppDes;
 
+    @BindView(R.id.fl_app_download)
+    FrameLayout flAppDownload;
+
     @BindView(R.id.scrollview)
     ScrollView scrollview;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.back)
+    ImageView back;
 
     private String packagename;
     private LoadingPage loadingPage;
@@ -68,6 +79,13 @@ public class DetailActivity extends Activity {
         View view = UIUitls.inflate(R.layout.activity_detail);
         ButterKnife.bind(this,view);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         //将顶部应用基本信息添加至帧布局中
         AppInfoModule appInfoModule = new AppInfoModule(UIUitls.getContext());
         appInfoModule.bindData(detailAppInfo);
@@ -84,6 +102,10 @@ public class DetailActivity extends Activity {
         AppDesModule appDesModule = new AppDesModule(UIUitls.getContext(),scrollview);
         appDesModule.bindData(detailAppInfo);
         flAppDes.addView(appDesModule.view);
+
+        AppDownloadModule appDownloadModule = new AppDownloadModule(UIUitls.getContext());
+        appDownloadModule.bindData(detailAppInfo);
+        flAppDownload.addView(appDownloadModule.view);
         return view;
     }
 

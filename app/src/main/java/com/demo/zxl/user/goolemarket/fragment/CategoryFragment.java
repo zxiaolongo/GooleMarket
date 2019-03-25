@@ -38,7 +38,9 @@ public class CategoryFragment extends BaseFragment {
 
     private void initData(List<CategoryInfo> categoryInfoList) {
         categoryList = new ArrayList<>();
-
+        if (categoryInfoList==null) {
+            return;
+        }
         for (int i = 0; i < categoryInfoList.size(); i++) {
             CategoryInfo categoryInfo = categoryInfoList.get(i);
             //添加标题

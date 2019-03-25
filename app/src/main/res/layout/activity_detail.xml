@@ -1,42 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollview"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:id="@+id/back"
+            android:src="@mipmap/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <!--因为项目详情界面的代码逻辑非常多非常复杂,所以对其代码逻辑进行拆分,布局也进行拆分-->
-        <!--提供4个空白的帧布局,用addView的形式向帧布局中添加每一个子模块的功能-->
-        <FrameLayout
-            android:id="@+id/fl_app_info"
-            android:background="@drawable/selector_home_item_bg"
+        <ScrollView
+            android:layout_marginBottom="40dp"
+            android:id="@+id/scrollview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fl_app_safe"
-            android:background="@drawable/selector_home_item_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </FrameLayout>
-        <FrameLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/fl_app_pic"
-            android:background="#ccc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fl_app_des"
-            android:background="@drawable/selector_home_item_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--因为项目详情界面的代码逻辑非常多非常复杂,所以对其代码逻辑进行拆分,布局也进行拆分-->
+                <!--提供4个空白的帧布局,用addView的形式向帧布局中添加每一个子模块的功能-->
+                <FrameLayout
+                    android:id="@+id/fl_app_info"
+                    android:background="@drawable/selector_home_item_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/fl_app_safe"
+                    android:background="@drawable/selector_home_item_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/fl_app_pic"
+                    android:background="#ccc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/fl_app_des"
+                    android:background="@drawable/selector_home_item_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+        <FrameLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/fl_app_download"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
         </FrameLayout>
-    </LinearLayout>
-</ScrollView>
+    </RelativeLayout>
+</LinearLayout>
+

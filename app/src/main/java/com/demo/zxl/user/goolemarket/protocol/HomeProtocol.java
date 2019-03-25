@@ -1,5 +1,7 @@
 package com.demo.zxl.user.goolemarket.protocol;
 
+import android.util.Log;
+
 import com.demo.zxl.user.goolemarket.bean.HomeInfo;
 import com.google.gson.Gson;
 
@@ -11,7 +13,13 @@ import com.google.gson.Gson;
 public class HomeProtocol extends BaseProtocol<HomeInfo>{
     @Override
     public HomeInfo parseJson(String json) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, HomeInfo.class);
+        Log.i("*****",json);
+        try {
+            Gson gson = new Gson();
+            return gson.fromJson(json, HomeInfo.class);
+        }catch (Exception e){
+            return null;
+        }
+
     }
 }
